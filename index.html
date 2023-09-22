@@ -4,30 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery Aprendizados</title>
+    <title>jQuery Tutorials</title>
 </head>
 
 <body>
     <div>
-        <label>Enter the Value</label><br />
-        <input type="text" id="myInputValue" />
-
-        <button type="button" id="myShowBtn">Show Data</button>
+        <label>My Name is:</label>
+        <input type="text" id="myInputBox" />
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
 
-            $('#myShowBtn').click(function (e) {
-                e.preventDefault();
-
-                var str = $('#myInputValue').val();
-
-                alert(str);
-                console.log(str);
-
-            });
+            var input_value = "Eu Preenchi o Text do Input";
+            $('#myInputBox').val(input_value);
 
         });
     </script>
