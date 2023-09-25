@@ -10,16 +10,18 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <title>jQuery Tutorials</title>
-    <!-- <title>How to add text in p tag using jquery</title> -->
+    <!-- <title>How to get value of div content using jQuery</title> -->
 </head>
 
 <body>
 
-    <div>
-        <p id="myPara"> </p>
-
-        <button type="button" id="myButton">Click to Add</button>
+    <div id="divContent">
+        This is a div Tag
+        <h5>This is a Heading Tag</h5>
+        <p>This is a paragrah Tag</p>
     </div>
+
+    <button type="button" id="myButton">Click Me</button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -28,9 +30,11 @@
             $('#myButton').click(function (e) {
                 e.preventDefault();
 
-                var paragragh = "Hello, I am funda of web IT. We provide online web tutorials";
+                var div_content_text = $('#divContent').text(); //text() Method
+                alert(div_content_text);
 
-                $('#myPara').text(paragragh);
+                var div_content_html = $('#divContent').html(); //html() Method
+                alert(div_content_html);
 
             });
 
