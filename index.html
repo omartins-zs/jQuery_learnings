@@ -9,50 +9,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <title>Get closest tr data using map function in jQuery</title>
+    <title>How to get the closest input value from clicked element with jQuery</title>
 
 </head>
 
 <body>
 
+    <div class="container">
 
-    <table cellpadding="15px" border="1px" cellspacing="1px">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Full Name</th>
-                <th>Course</th>
-                <th>Action</th>
-            </tr>
-        </thead>
+        <div class="products">
+            <label>Product 1:</label>
+            <input type="text" name="product_id" value="1" />
+            <button type="button" class="myButton">Click Me</button>
+        </div>
+        <div class="products">
+            <label>Product 2:</label>
+            <input type="text" name="product_id" value="2" />
+            <button type="button" class="myButton">Click Me</button>
+        </div>
+        <div class="products">
+            <label>Product 3:</label>
+            <input type="text" name="product_id" value="3" />
+            <button type="button" class="myButton">Click Me</button>
+        </div>
+        <div class="products">
+            <label>Product 4:</label>
+            <input type="text" name="product_id" value="4" />
+            <button type="button" class="myButton">Click Me</button>
+        </div>
 
-        <tbody class="tableBody">
-            <tr>
-                <td>1</td>
-                <td>Funda of Web IT</td>
-                <td>Web Development</td>
-                <td><button type="button" class="myButton">Click Me</button></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Ved Prakash</td>
-                <td>Full Stack</td>
-                <td><button type="button" class="myButton">Click Me</button></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Om Prakash N</td>
-                <td>Python Developer</td>
-                <td><button type="button" class="myButton">Click Me</button></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Varun Govind</td>
-                <td>Programmer</td>
-                <td><button type="button" class="myButton">Click Me</button></td>
-            </tr>
-        </tbody>
-    </table>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -60,14 +46,8 @@
 
             $(".myButton").click(function () {
 
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children('td').map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-                alert('ID: ' + data[0] + ', FullName: ' + data[1] + ', Course: ' + data[2])
+                var product_id = $(this).closest('.products').find('input[name="product_id"]').val();
+                alert('The Product Id : ' + product_id)
 
             });
 
