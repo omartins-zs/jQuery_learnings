@@ -10,58 +10,30 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <title>jQuery Tutorials</title>
-    <!-- <title>How to do Form input box validation using jquery</title> -->
+    <!-- <title>How to add text in p tag using jquery</title> -->
 </head>
 
 <body>
 
     <div>
+        <p id="myPara"> </p>
 
-        <label>First Name:</label>
-        <input type="text" id="firstname" /> <br />
-
-        <label>Last Name:</label>
-        <input type="text" id="lastname" /> <br />
-
-        <label>Course:</label>
-        <input type="text" id="course" /> <br />
-
-        <label>Section:</label>
-        <input type="text" id="section" /> <br />
-
-        <button type="button" id="submit">Submit</button>
-
+        <button type="button" id="myButton">Click to Add</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
 
-            $('#submit').click(function (e) {
+            $('#myButton').click(function (e) {
                 e.preventDefault();
 
-                var isValid = true;
+                var paragragh = "Hello, I am funda of web IT. We provide online web tutorials";
 
-                $('#firstname,#lastname,#course,#section').each(function () {
-                    if ($.trim($(this).val()) == '') {
-
-                        isValid = false;
-                        $(this).css({ "border": "1px solid red", "background": "#FFCECE" });
-                    }
-                    else {
-                        $(this).css({ "border": "", "background": "" });
-                    }
-                });
-
-                if (isValid == false) {
-                    alert("All fields are mandetory");
-                }
-                else {
-                    // Your code here
-                    alert("Your Done with validation");
-                }
+                $('#myPara').text(paragragh);
 
             });
+
         });
     </script>
 </body>
