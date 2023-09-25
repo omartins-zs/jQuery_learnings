@@ -10,21 +10,58 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <title>jQuery Tutorials</title>
+    <!-- <title>How to do Form input box validation using jquery</title> -->
 </head>
 
 <body>
+
     <div>
-        <label>My Name is:</label>
-        <input type="text" id="myInputBox" />
+
+        <label>First Name:</label>
+        <input type="text" id="firstname" /> <br />
+
+        <label>Last Name:</label>
+        <input type="text" id="lastname" /> <br />
+
+        <label>Course:</label>
+        <input type="text" id="course" /> <br />
+
+        <label>Section:</label>
+        <input type="text" id="section" /> <br />
+
+        <button type="button" id="submit">Submit</button>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
 
-            var input_value = "Eu Preenchi o Text do Input";
-            $('#myInputBox').val(input_value);
+            $('#submit').click(function (e) {
+                e.preventDefault();
 
+                var isValid = true;
+
+                $('#firstname,#lastname,#course,#section').each(function () {
+                    if ($.trim($(this).val()) == '') {
+
+                        isValid = false;
+                        $(this).css({ "border": "1px solid red", "background": "#FFCECE" });
+                    }
+                    else {
+                        $(this).css({ "border": "", "background": "" });
+                    }
+                });
+
+                if (isValid == false) {
+                    alert("All fields are mandetory");
+                }
+                else {
+                    // Your code here
+                    alert("Your Done with validation");
+                }
+
+            });
         });
     </script>
 </body>
