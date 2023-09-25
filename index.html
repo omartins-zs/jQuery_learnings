@@ -6,34 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Links CSS Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <title>jQuery Tutorials</title>
-    <!-- <title>How to add text in p tag using jquery</title> -->
+    <!-- <title>Add / Remove Input Fields Dynamically using jQuery</title> -->
 </head>
 
 <body>
 
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h4>
+                    Product Price
+                    <button type="button" id="addMoreButton" class="btn btn-primary float-end">Add More +</button>
+                </h4>
+            </div>
+            <div class="card-body">
+                <form action="" method="POST">
 
-    <div id="appendMethodCodeDemo"></div>
+                    <div class="add-more-mainForm">
 
-    <div id="htmlMethodCodeDemo"></div>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label>Selling Price</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label>Offer Price</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label>Quantity</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="addRemoveButton">
+                                </div>
+                            </div>
+                        </div>
 
-    <button type="button" id="myButton">Click Me</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         $(document).ready(function () {
 
-            $('#myButton').click(function (e) {
+            $(document).on('click', '#addMoreButton', function () {
+
+                var htmlForm = $(".add-more-mainForm").first().clone();
+                $(htmlForm).find(".addRemoveButton").html("<label for=''>&nbsp;</label><br/><a class='btn btn-danger remove'>Remove</a>");
+                $(".add-more-mainForm").last().after(htmlForm);
+
+            });
+
+            $(document).on('click', '.remove', function (e) {
                 e.preventDefault();
 
-                var htmlCode_content = '<div> I am div with append() <h5>I am Heading</h5> <p>I am para</p> <hr/> </div>';
-                $('#appendMethodCodeDemo').append(htmlCode_content);  //html() Method
-
-                var htmlCode_content = '<div> I am div with html() <h5>I am Heading</h5> <p>I am para</p> <hr/> </div>';
-                $('#htmlMethodCodeDemo').html(htmlCode_content); //html() Method
+                $(this).parents(".add-more-mainForm").remove();
 
             });
 
