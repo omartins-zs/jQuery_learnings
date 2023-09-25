@@ -10,16 +10,15 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <title>jQuery Tutorials</title>
-    <!-- <title>How to get value of div content using jQuery</title> -->
+    <!-- <title>How to add text in p tag using jquery</title> -->
 </head>
 
 <body>
 
-    <div id="divContent">
-        This is a div Tag
-        <h5>This is a Heading Tag</h5>
-        <p>This is a paragrah Tag</p>
-    </div>
+
+    <div id="appendMethodCodeDemo"></div>
+
+    <div id="htmlMethodCodeDemo"></div>
 
     <button type="button" id="myButton">Click Me</button>
 
@@ -30,11 +29,11 @@
             $('#myButton').click(function (e) {
                 e.preventDefault();
 
-                var div_content_text = $('#divContent').text(); //text() Method
-                alert(div_content_text);
+                var htmlCode_content = '<div> I am div with append() <h5>I am Heading</h5> <p>I am para</p> <hr/> </div>';
+                $('#appendMethodCodeDemo').append(htmlCode_content);  //html() Method
 
-                var div_content_html = $('#divContent').html(); //html() Method
-                alert(div_content_html);
+                var htmlCode_content = '<div> I am div with html() <h5>I am Heading</h5> <p>I am para</p> <hr/> </div>';
+                $('#htmlMethodCodeDemo').html(htmlCode_content); //html() Method
 
             });
 
