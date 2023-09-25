@@ -10,73 +10,31 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <title>jQuery Tutorials</title>
-    <!-- <title>Add / Remove Input Fields Dynamically using jQuery</title> -->
+    <!-- <title>How to remove the div or element using jquery</title> -->
 </head>
 
 <body>
 
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-header">
-                <h4>
-                    Product Price
-                    <button type="button" id="addMoreButton" class="btn btn-primary float-end">Add More +</button>
-                </h4>
-            </div>
-            <div class="card-body">
-                <form action="" method="POST">
-
-                    <div class="add-more-mainForm">
-
-                        <div class="row">
-                            <div class="col-md-3 mb-3">
-                                <label>Selling Price</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <label>Offer Price</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <label>Quantity</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-3">
-                                <div class="addRemoveButton">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </form>
-            </div>
-        </div>
+    <div id="myDivSection">
+        <h4>Hello Guys, You are going to remove this div</h4>
+        <p>This is a paragraph</p>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <button type="button" id="myButton">Click to remove</button>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
 
-            $(document).on('click', '#addMoreButton', function () {
+            $("#myButton").click(function () {
 
-                var htmlForm = $(".add-more-mainForm").first().clone();
-                $(htmlForm).find(".addRemoveButton").html("<label for=''>&nbsp;</label><br/><a class='btn btn-danger remove'>Remove</a>");
-                $(".add-more-mainForm").last().after(htmlForm);
-
-            });
-
-            $(document).on('click', '.remove', function (e) {
-                e.preventDefault();
-
-                $(this).parents(".add-more-mainForm").remove();
+                $("#myDivSection").remove();
 
             });
 
         });
     </script>
+
 </body>
 
 </html>
