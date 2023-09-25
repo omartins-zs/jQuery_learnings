@@ -15,20 +15,55 @@
 
 <body>
 
-    <div id="myDivSection">
-        <h4>Hello Guys, You are going to remove this div</h4>
-        <p>This is a paragraph</p>
-    </div>
+    <table cellpadding="15px" border="1px" cellspacing="1px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+        </thead>
 
-    <button type="button" id="myButton">Click to remove</button>
+        <tbody class="tableBody">
+            <tr>
+                <td class="myId">1</td>
+                <td class="name">Funda of Web IT</td>
+                <td>Web Development</td>
+                <td><button type="button" class="myButton">Click Me</button></td>
+            </tr>
+            <tr>
+                <td class="myId">2</td>
+                <td class="name">Ved Prakash</td>
+                <td>Full Stack</td>
+                <td><button type="button" class="myButton">Click Me</button></td>
+            </tr>
+            <tr>
+                <td class="myId">3</td>
+                <td class="name">Om Prakash N</td>
+                <td>Python Developer</td>
+                <td><button type="button" class="myButton">Click Me</button></td>
+            </tr>
+            <tr>
+                <td class="myId">4</td>
+                <td class="name">Varun Govind</td>
+                <td>Programmer</td>
+                <td><button type="button" class="myButton">Click Me</button></td>
+            </tr>
+        </tbody>
+    </table>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
 
-            $("#myButton").click(function () {
+            $(".myButton").click(function () {
 
-                $("#myDivSection").remove();
+                var id = $(this).closest('tr').find('td.myId').text();
+                alert('This is ID: ' + id);
+
+                var fullname = $(this).closest('tr').find('td.name').text();
+                alert('This is Fullname: ' + fullname);
 
             });
 
