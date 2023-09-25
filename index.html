@@ -9,37 +9,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <title>Reload Div Content without reloading the page using jQuery</title>
+    <title>Disable/enable the form submit button in jQuery</title>
 
 
 </head>
 
 <body>
-    <div class="container">
 
-        <h3>Time:
-            <?= date('H:i:s') ?>
-        </h3>
+    <form action="" method="post">
 
-        <div id="myMainDiv">
-            Live Time: <h4 id="myRefreshDiv">
-                <?= date('H:i:s') ?>
-            </h4>
-        </div>
+        <input type="checkbox" name="agree" id="agree" /> I accept <br>
+        <button type="submit" id="mySubmitButton">Submit</button>
 
-    </div>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script>
         $(document).ready(function () {
 
-            // Exemplo Base
-            // $("#myMainDiv").load(location.href + " #myRefreshDiv");
-            
-            setInterval(function () {
-                $("#myMainDiv").load(location.href + " #myRefreshDiv");
-            }, 1000);
+            $('#agree').click(function () {
+
+                if ($('#mySubmitButton').is(':disabled')) {
+                    $('#mySubmitButton').removeAttr('disabled');
+                } else {
+                    $('#mySubmitButton').attr('disabled', 'disabled');
+                }
+
+            });
 
         });
     </script>
