@@ -18,7 +18,8 @@
 
     <form action="" method="post">
 
-        <input type="checkbox" name="agree" id="agree" /> I accept <br>
+        <input type="text" id="firstname" placeholder="First Name" /> <br /><br />
+        <input type="text" id="lastname" placeholder="Last Name" /> <br /><br />
         <button type="submit" id="mySubmitButton">Submit</button>
 
     </form>
@@ -27,12 +28,15 @@
     <script>
         $(document).ready(function () {
 
-            $('#agree').click(function () {
+            $('#mySubmitButton').prop('disabled', true);
 
-                if ($('#mySubmitButton').is(':disabled')) {
-                    $('#mySubmitButton').removeAttr('disabled');
-                } else {
-                    $('#mySubmitButton').attr('disabled', 'disabled');
+            $('#firstname, #lastname').keyup(function () {
+
+                if ($('#firstname').val() != '' && $('#lastname').val() != '') {
+                    $('#mySubmitButton').prop('disabled', false);
+                }
+                else {
+                    $('#mySubmitButton').prop('disabled', true);
                 }
 
             });
